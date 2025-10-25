@@ -43,10 +43,15 @@ public class PrimeFactorsTest {
         MatcherAssert.assertThat(factorOf(7), is(List.of(7)));
     }
 
+    @Test
+    public void shouldReturnListContainingTwoTwoTwoWhenNumberIsEight() {
+        MatcherAssert.assertThat(factorOf(8), is(List.of(2, 2, 2)));
+    }
+
     private List<Integer> factorOf(Integer number) {
         ArrayList<Integer> factors = new ArrayList<>();
         if (number > 1) {
-            if (number % 2 == 0) {
+            while (number % 2 == 0) {
                 factors.add(2);
                 number /= 2;
             }
