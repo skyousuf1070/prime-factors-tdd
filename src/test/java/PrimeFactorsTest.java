@@ -17,9 +17,14 @@ public class PrimeFactorsTest {
         MatcherAssert.assertThat(factorOf(2), is(List.of(2)));
     }
 
+    @Test
+    public void shouldReturnListContainingThreeWhenNumberIsThree() {
+        MatcherAssert.assertThat(factorOf(3), is(List.of(3)));
+    }
+
     private List<Integer> factorOf(Integer number) {
-        if (number == 2) {
-            return List.of(2);
+        if (number > 1) {
+            return List.of(number);
         }
         return emptyList();
     }
