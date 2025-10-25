@@ -33,6 +33,11 @@ public class PrimeFactorsTest {
         MatcherAssert.assertThat(factorOf(5), is(List.of(5)));
     }
 
+    @Test
+    public void shouldReturnListContainingTwoThreeWhenNumberIsSix() {
+        MatcherAssert.assertThat(factorOf(6), is(List.of(2, 3)));
+    }
+
     private List<Integer> factorOf(Integer number) {
         ArrayList<Integer> factors = new ArrayList<>();
         if (number > 1) {
