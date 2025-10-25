@@ -48,16 +48,20 @@ public class PrimeFactorsTest {
         MatcherAssert.assertThat(factorOf(8), is(List.of(2, 2, 2)));
     }
 
+    @Test
+    public void shouldReturnListContainingThreeThreeWhenNumberIsNine() {
+        MatcherAssert.assertThat(factorOf(9), is(List.of(3, 3)));
+    }
+
     private List<Integer> factorOf(Integer number) {
         ArrayList<Integer> factors = new ArrayList<>();
-        if (number > 1) {
-            while (number % 2 == 0) {
-                factors.add(2);
-                number /= 2;
+        int divisor = 2;
+        while (number > 1) {
+            while (number % divisor == 0) {
+                factors.add(divisor);
+                number /= divisor;
             }
-        }
-        if (number > 1) {
-            factors.add(number);
+            divisor++;
         }
         return factors;
     }
