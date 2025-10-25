@@ -38,6 +38,11 @@ public class PrimeFactorsTest {
         MatcherAssert.assertThat(factorOf(6), is(List.of(2, 3)));
     }
 
+    @Test
+    public void shouldReturnListContainingSevenWhenNumberIsSeven() {
+        MatcherAssert.assertThat(factorOf(7), is(List.of(7)));
+    }
+
     private List<Integer> factorOf(Integer number) {
         ArrayList<Integer> factors = new ArrayList<>();
         if (number > 1) {
