@@ -53,6 +53,11 @@ public class PrimeFactorsTest {
         MatcherAssert.assertThat(factorOf(9), is(List.of(3, 3)));
     }
 
+    @Test
+    public void shouldReturnListContainingTwoTwoThreeThreeFiveSevenElevenElevenThirteenWhenNumberIsTwoTimesTwoTimesThreeTimesThreeTimesFiveTimesSevenTimesElevenTimesThirteen() {
+        MatcherAssert.assertThat(factorOf(2 * 2 * 3 * 3 * 5 * 7 * 11 * 11 * 13), is(List.of(2, 2, 3, 3, 5, 7, 11, 11, 13)));
+    }
+
     private List<Integer> factorOf(Integer number) {
         ArrayList<Integer> factors = new ArrayList<>();
         int divisor = 2;
