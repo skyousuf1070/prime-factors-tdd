@@ -1,6 +1,7 @@
 import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Collections.emptyList;
@@ -22,10 +23,23 @@ public class PrimeFactorsTest {
         MatcherAssert.assertThat(factorOf(3), is(List.of(3)));
     }
 
+    @Test
+    public void shouldReturnListContainingTwoTwoWhenNumberIsFour() {
+        MatcherAssert.assertThat(factorOf(4), is(List.of(2, 2)));
+    }
+
     private List<Integer> factorOf(Integer number) {
+        ArrayList<Integer> factors = new ArrayList<>();
         if (number > 1) {
-            return List.of(number);
+            if (number % 2 == 0) {
+                factors.add(2);
+                number /= 2;
+            }
+            if (number > 1) {
+                factors.add(number);
+            }
+            return factors;
         }
-        return emptyList();
+        return factors;
     }
 }
