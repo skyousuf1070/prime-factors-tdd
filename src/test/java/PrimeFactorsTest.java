@@ -28,6 +28,11 @@ public class PrimeFactorsTest {
         MatcherAssert.assertThat(factorOf(4), is(List.of(2, 2)));
     }
 
+    @Test
+    public void shouldReturnListContainingFiveWhenNumberIsFive() {
+        MatcherAssert.assertThat(factorOf(5), is(List.of(5)));
+    }
+
     private List<Integer> factorOf(Integer number) {
         ArrayList<Integer> factors = new ArrayList<>();
         if (number > 1) {
@@ -35,10 +40,9 @@ public class PrimeFactorsTest {
                 factors.add(2);
                 number /= 2;
             }
-            if (number > 1) {
-                factors.add(number);
-            }
-            return factors;
+        }
+        if (number > 1) {
+            factors.add(number);
         }
         return factors;
     }
